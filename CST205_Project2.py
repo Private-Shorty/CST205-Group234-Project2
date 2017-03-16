@@ -40,7 +40,7 @@ if (answer == 1):
     #plt.imshow(img2)
     cv2.imwrite('FinalImage.png', imgcv) #print result image
     plt.show()
-if (answer == 2):
+elif (answer == 2):
     imgcv = cv2.imread(picture)
     gray = cv2.cvtColor(imgcv, cv2.COLOR_BGR2GRAY)
     faces = face_cascade.detectMultiScale(gray, 1.3, 5)
@@ -58,23 +58,23 @@ if (answer == 2):
             cv2.rectangle(roi_color, (ex, ey), (ex+ew, ey+eh), (0,255,0), 2)
                         
                 
-    basewidth = (x+w)-x
-    img2 = Image.open('Cowboyhat.png')
-    img2 = img2.resize((basewidth,int(basewidth*0.6)), PIL.Image.ANTIALIAS)
-    img2.save('ABetterHat.png') 
+        basewidth = (x+w)-x
+        img2 = Image.open('Cowboyhat.png')
+        img2 = img2.resize((basewidth,int(basewidth*0.6)), PIL.Image.ANTIALIAS)
+        img2.save('ABetterHat.png') 
 
     #img3 = Image.open('Atest.png')
-    foreground = Image.open('Atest.png')
-    foreground.convert('RGBA')
+        foreground = Image.open('Atest.png')
+        foreground.convert('RGBA')
     #img4 = Image.open('ABoringFellow.png')
-    background = Image.open(picture)
+        background = Image.open(picture)
 
 
 
-    background.paste(foreground, (x, y-(h/2)), foreground)
-    background.save('FinalImage.png', "PNG")
+        background.paste(foreground, (x, y-(h/2)), foreground)
+        background.save('FinalImage.png', "PNG")
     
-    cv2.imwrite('Image.png', imgcv)
-    cv2.waitKey()
+        cv2.imwrite('Image.png', imgcv)
+        cv2.waitKey()
 else:
     print("That is not a valid response, exiting application...")
